@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rooms</title>
+    <style>
+        body{
+            background-image: url('/chat-image'),url('/chat-image2');
+            background-attachment: fixed,fixed;
+            background-repeat: no-repeat,no-repeat;
+            background-size:contain,cover;
+            background-position: center;
+        }
+        #form,#container{
+            width:500px;
+            margin:auto;
+        }
+        #container{
+           margin-bottom:10px;
+           background-color: whitesmoke;
+        }
+        #text-in{
+           padding:12px;
+           margin-left:80px;
+        }
+        #btn{
+           border: none;
+           font-size: 18px;
+           padding:12px 40px 12px 40px;
+           border-radius: 40px/24px;
+           outline: none;
+           color: white;
+           background-color: rgb(67, 71, 68);
+        }
+        #btn:hover{
+            background-color: rgb(43, 85, 182);
+        }
+        .room-name{
+            background-color: rgb(54, 110, 143);
+            text-align: center;
+            font-size: 25px;
+            color:rgb(15, 15, 15);
+        }
+        a{
+            display:inline-block;
+            width:100%;
+            text-align: center;
+            font-size: 25px;
+            text-decoration: none;
+            background-color: rgb(143, 132, 132);
+            color:white;
+            margin-bottom: 15px;
+        }
+    </style>
+    <script defer src="socket.io/socket.io.js"></script>
+	<script defer src="script2.js"></script>
+</head>
+<body>
+    <div id='container'>
+    </div>
+    <form id="form" action="/room" method="POST" autocomplete="off">
+        <input id="text-in" type="text" name="room" placeholder="new" required>
+        <input type="submit" value="New Room" id="btn">
+    </form>
+</body>
+</html>
