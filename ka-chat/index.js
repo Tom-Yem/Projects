@@ -18,6 +18,10 @@ app.get('/chat-image2', (req,res) =>{
     res.sendFile(__dirname + '/black.jpg')
 });
 
+app.get('/fetch.umd.js',(req,res) =>{
+    res.sendFile(__dirname + '/fetch.umd.js')
+});
+
 //for getting second page's script
 app.get('/script.js',(req,res) =>{
 	res.sendFile(path.join(__dirname + '/script.js')) 
@@ -63,6 +67,7 @@ app.get('/:room',( req,res) =>{
 //socket io's first and main event handler
 io.on('connection',socket =>{
 	socket.on('new-user',(room,name) =>{
+	console.log(room);
 	 rooms[room].users[socket.id] = name;
 	 socket.join(room);
 	 socket.to(room).broadcast.emit('user-connected',name);
